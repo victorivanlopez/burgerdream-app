@@ -12,8 +12,8 @@ export const categories = [
     name: "Sandwiches",
   },
   {
-    slug: "baguette",
-    name: "Baguette",
+    slug: "baguettes",
+    name: "Baguettes",
   },
   {
     slug: "bebidas",
