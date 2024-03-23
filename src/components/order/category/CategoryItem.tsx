@@ -5,7 +5,7 @@ interface CategoryIconProps {
   category: Category;
 }
 
-export default function CategoryIcon({ category }: CategoryIconProps) {
+export default function CategoryItem({ category }: CategoryIconProps) {
   return (
     <Link
       href={`/order/${category.slug}`}
