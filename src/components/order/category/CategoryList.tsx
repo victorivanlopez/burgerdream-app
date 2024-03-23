@@ -1,5 +1,5 @@
 import { Category } from '@prisma/client';
-import { CategoryIcon } from '.';
+import { CategoryItem } from '.';
 
 interface CategoryListProps {
   categories: Category[];
@@ -10,7 +10,7 @@ export default function CategoryList({ categories }: CategoryListProps) {
     <>
       {
         categories.map(category => (
-          <CategoryIcon
+          <CategoryItem
             key={category.id}
             category={category}
           />
