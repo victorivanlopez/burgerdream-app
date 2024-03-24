@@ -9,7 +9,7 @@ export default async function OrderSidebar() {
   const categories = await getCategories();
 
   return (
-    <aside className="md:w-72 md:h-screen bg-white">
+    <aside className="xl:w-64 xl:h-screen bg-white shadow">
       <nav className='mt-10'>
         <CategoryList categories={categories} />
       </nav>
