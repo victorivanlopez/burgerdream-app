@@ -1,5 +1,8 @@
-import { prisma } from '@/libs';
+// import { prisma } from '@/libs';
+import { PrismaClient } from '@prisma/client';
 import { categories, products } from './data';
+
+const prisma = new PrismaClient();
 
 async function main() {
   try {
