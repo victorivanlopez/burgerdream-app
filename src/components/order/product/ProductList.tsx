@@ -7,7 +7,7 @@ interface ProductListProps {
 
 export default function ProductList({ products }: ProductListProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
+    <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 items-start">
       {
         products.map(product => (
           <ProductItem
