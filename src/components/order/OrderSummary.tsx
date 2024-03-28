@@ -1,5 +1,6 @@
 'use client'
 import { useOrderStore } from '@/stores';
+import { OrderDetailsList } from '.';
 
 export default function OrderSummary() {
 
@@ -12,7 +13,7 @@ export default function OrderSummary() {
       {
         order.length === 0
           ? <p className='py-5 text-center'>No hay productos aún.</p>
-          : <p>Se seleccionó algo.</p>
+          : <OrderDetailsList order={order} />
       }
     </aside>
   )
