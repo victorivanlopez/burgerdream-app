@@ -2,7 +2,9 @@ import { TrashIcon } from '@/components/ui/icons';
 
 export default function BtnDeleteProductOrder() {
   return (
-    <button>
+    <button
+      type='button'
+    >
       <TrashIcon />
     </button>
   )
