@@ -2,11 +2,11 @@
 import { useOrderStore } from '@/stores';
 import type { Product } from '@prisma/client';
 
-interface ButtonAddProductProps {
+interface ButtonProductProps {
   product: Product;
 }
 
-export default function ButtonAddProduct({ product }: ButtonAddProductProps) {
+export default function ButtonProduct({ product }: ButtonProductProps) {
   const addProductToOrder = useOrderStore((state) => state.addProductToOrder);
 
   return (
