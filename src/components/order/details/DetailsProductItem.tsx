@@ -34,7 +34,7 @@ export default function DetailsProductItem({ product }: OrderDetailsItemProps) {
 
       <div className='flex justify-between text-sm'>
         <p className='font-bold'>Subtotal:</p>
-        <span>{product.subtotal}</span>
+        <span>{formatToDollars(product.subtotal)}</span>
       </div>
     </div>
   )
