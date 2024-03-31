@@ -1,5 +1,6 @@
 'use client'
 import { useOrderStore } from '@/stores';
+import { MinusIcon, PlusIcon } from '@/components/ui/icons';
 import type { Product } from '@prisma/client';
 
 interface ButtonProductProps {
@@ -8,17 +9,34 @@ interface ButtonProductProps {
 
 export default function ButtonProduct({ product }: ButtonProductProps) {
   const addProductToOrder = useOrderStore((state) => state.addProductToOrder);
+  const isProductInOrder = useOrderStore(state => state.isProductInOrder(product));
+
+  const onClickButton = () => {
+    if (isProductInOrder) {
+      console.log('Eliminando...', product)
+    } else {
+      addProductToOrder(product);
+    }
+  }
 
   return (
     <button
       type='button'
-      className='flex gap-2 items-center rounded-md border bg-orangeburger-400 py-2 px-8 font-bold transition-colors hover:bg-opacity-90'
-      onClick={() => addProductToOrder(product)}
+      className={`${isProductInOrder ? 'bg-redburger-100 text-redburger-500' : 'bg-orangeburger-400 text-black'} flex justify-center gap-2 items-center rounded-md borde py-2 px-8 font-bold hover:bg-opacity-90 w-full`}
+      onClick={onClickButton}
     >
-      <span>Agregar</span>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-      </svg>
+      <span>
+        {
+          isProductInOrder
+            ? 'Eliminar de orden'
+            : 'Agregar a orden'
+        }
+      </span>
+      {
+        isProductInOrder
+          ? <MinusIcon />
+          : <PlusIcon />
+      }
     </button>
   )
 }
