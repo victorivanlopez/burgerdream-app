@@ -1,7 +1,7 @@
 'use client'
-import { PlusIcon } from '@/components/ui/icons';
 import { useOrderStore } from '@/stores';
-import { Product } from '@prisma/client';
+import { PlusIcon } from '@/components/ui/icons';
+import type { Product } from '@prisma/client';
 
 interface BtnIncreaseQtyProps {
   idProduct: Product['id'];
