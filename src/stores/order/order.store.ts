@@ -9,6 +9,7 @@ interface OrderStore {
   addProductToOrder: (product: Product) => void;
   increaseQty: (idProduct: Product['id']) => void;
   decreaseQty: (idProduct: Product['id']) => void;
+  deleteProductOrder: (idProduct: Product['id']) => void;
 }
 
 const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, get) => ({
@@ -47,6 +48,11 @@ const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, 
     });
 
     set({ order }, false, 'decreaseQty');
+  },
+
+  deleteProductOrder: (idProduct: Product['id']) => {
+    const order = get().order.filter(item => item.id !== idProduct);
+    set({ order }, false, 'deleteProductOrder');
   },
 })
 
