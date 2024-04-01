@@ -23,7 +23,7 @@ export default function DetailsProductItem({ product }: OrderDetailsItemProps) {
           {
             product.qty === 1
               ? <BtnDeleteProductOrder />
-              : <BtnDecreaseQty />
+              : <BtnDecreaseQty idProduct={product.id} />
           }
 
           <p>{product.qty}</p>
