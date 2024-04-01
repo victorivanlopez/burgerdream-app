@@ -28,7 +28,7 @@ export default function DetailsProductItem({ product }: OrderDetailsItemProps) {
 
           <p>{product.qty}</p>
 
-          <BtnIncreaseQty />
+          <BtnIncreaseQty idProduct={product.id} />
         </div>
       </div>
 
