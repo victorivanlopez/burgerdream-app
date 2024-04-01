@@ -22,7 +22,7 @@ export default function DetailsProductItem({ product }: OrderDetailsItemProps) {
         <div className='flex justify-between items-center'>
           {
             product.qty === 1
-              ? <BtnDeleteProductOrder />
+              ? <BtnDeleteProductOrder idProduct={product.id} />
               : <BtnDecreaseQty idProduct={product.id} />
           }
 
