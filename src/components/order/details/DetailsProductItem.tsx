@@ -1,7 +1,7 @@
 import {
-  BtnAddQty,
   BtnDecreaseQty,
-  BtnDeleteProductOrder
+  BtnDeleteProductOrder,
+  BtnIncreaseQty
 } from '.';
 import { formatToDollars } from '@/helpers';
 import type { OrderItem } from '@/types';
@@ -28,7 +28,7 @@ export default function DetailsProductItem({ product }: OrderDetailsItemProps) {
 
           <p>{product.qty}</p>
 
-          <BtnAddQty />
+          <BtnIncreaseQty />
         </div>
       </div>
 
