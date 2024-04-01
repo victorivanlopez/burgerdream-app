@@ -9,11 +9,12 @@ interface ButtonProductProps {
 
 export default function ButtonProduct({ product }: ButtonProductProps) {
   const addProductToOrder = useOrderStore((state) => state.addProductToOrder);
+  const deleteProductOrder = useOrderStore(state => state.deleteProductOrder);
   const isProductInOrder = useOrderStore(state => state.isProductInOrder(product));
 
   const onClickButton = () => {
     if (isProductInOrder) {
-      console.log('Eliminando...', product)
+      deleteProductOrder(product.id);
     } else {
       addProductToOrder(product);
     }
