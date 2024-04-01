@@ -7,6 +7,7 @@ interface OrderStore {
   order: OrderItem[];
   isProductInOrder: (product: Product) => boolean;
   addProductToOrder: (product: Product) => void;
+  increaseQty: (idProduct: Product['id']) => void;
 }
 
 const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, get) => ({
@@ -25,6 +26,16 @@ const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, 
       subtotal: price
     }
     set((state) => ({ order: [...state.order, newProduct] }), false, 'addProductToOrder');
+  },
+
+  increaseQty: (idProduct: Product['id']) => {
+    const order = get().order.map(item => {
+      return item.id === idProduct
+        ? { ...item, qty: item.qty + 1, subtotal: item.price * (item.qty + 1) }
+        : item
+    });
+
+    set({ order }, false, 'increaseQty');
   },
 })
 
