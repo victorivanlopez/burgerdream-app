@@ -23,7 +23,7 @@ export default function ButtonProduct({ product }: ButtonProductProps) {
   return (
     <button
       type='button'
-      className={`${isProductInOrder ? 'bg-redburger-100 text-redburger-500' : 'bg-orangeburger-400 text-black'} flex justify-center gap-2 items-center rounded-md borde py-2 px-8 font-bold hover:bg-opacity-90 w-full`}
+      className={`${isProductInOrder ? 'bg-redburger-100 text-redburger-500' : 'bg-orangeburger-400 text-black'} flex justify-center gap-2 items-center rounded-md borde py-2 px-8 font-bold hover:bg-opacity-90 transition-colors w-full`}
       onClick={onClickButton}
     >
       <span>
