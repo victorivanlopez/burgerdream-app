@@ -18,7 +18,7 @@ const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, 
 
   isProductInOrder: (product: Product) => get().order.some(item => item.id === product.id),
 
-  orderTotal: () => get().order.reduce((total, item) => total + (item.price * item.qty), 0),
+  orderTotal: () => get().order.reduce((total, item) => total + item.subtotal, 0),
 
   addProductToOrder: (product: Product) => {
     const { id, name, price } = product;
