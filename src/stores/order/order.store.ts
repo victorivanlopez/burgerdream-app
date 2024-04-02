@@ -6,6 +6,7 @@ import type { OrderItem } from '@/types';
 interface OrderStore {
   order: OrderItem[];
   isProductInOrder: (product: Product) => boolean;
+  orderTotal: () => number;
   addProductToOrder: (product: Product) => void;
   increaseQty: (idProduct: Product['id']) => void;
   decreaseQty: (idProduct: Product['id']) => void;
@@ -16,6 +17,8 @@ const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, 
   order: [],
 
   isProductInOrder: (product: Product) => get().order.some(item => item.id === product.id),
+
+  orderTotal: () => get().order.reduce((total, item) => total + (item.price * item.qty), 0),
 
   addProductToOrder: (product: Product) => {
     const { id, name, price } = product;
