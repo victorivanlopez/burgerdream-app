@@ -7,7 +7,7 @@ interface OrderDetailsListProps {
 
 export default function DetailsProductList({ order }: OrderDetailsListProps) {
   return (
-    <div className='py-5 grid grid-cols-1'>
+    <div className='pt-5 grid grid-cols-1'>
       {
         order.map(product => (
           <DetailsProductItem
