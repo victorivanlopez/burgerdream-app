@@ -1,1 +1,1 @@
-export * from './formatToDollars';
+export * from './convertToCurrency';
