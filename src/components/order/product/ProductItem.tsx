@@ -1,5 +1,5 @@
 import { ButtonProduct } from '.';
-import { formatToDollars } from '@/helpers';
+import { convertToCurrency } from '@/helpers';
 import type { Product } from '@prisma/client';
 
 interface ProductItemProps {
@@ -14,7 +14,7 @@ export default function ProductItem({ product }: ProductItemProps) {
       <div className="p-4">
         <h5 className="text-2xl font-bold mb-4">{product.name}</h5>
         <div className='flex items-center justify-between gap-2 mb-4'>
-          <span className='font-black text-2xl text-redburger-500'>{formatToDollars(product.price)}</span>
+          <span className='font-black text-2xl text-redburger-500'>{convertToCurrency(product.price)}</span>
         </div>
         <ButtonProduct product={product} />
       </div>
