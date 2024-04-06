@@ -10,9 +10,11 @@ export default function DetailsMainContainer() {
     <>
       <DetailsProductList order={order} />
 
-      <DetailsOrderTotal orderTotal={orderTotal} />
+      <div className='p-4 bg-gray-50 border '>
+        <DetailsOrderTotal orderTotal={orderTotal} />
 
-      <FormDetails />
+        <FormDetails />
+      </div>
     </>
   )
 }
