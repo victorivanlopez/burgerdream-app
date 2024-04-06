@@ -5,3 +5,4 @@ export { default as DetailsMainContainer } from './DetailsMainContainer';
 export { default as DetailsOrderTotal } from './DetailsOrderTotal';
 export { default as DetailsProductItem } from './DetailsProductItem';
 export { default as DetailsProductList } from './DetailsProductList';
+export { default as FormDetails } from './FormDetails';
