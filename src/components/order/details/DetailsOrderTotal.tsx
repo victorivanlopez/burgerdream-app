@@ -6,7 +6,7 @@ interface DetailsOrderTotalProps {
 
 export default function DetailsOrderTotal({ orderTotal }: DetailsOrderTotalProps) {
   return (
-    <div className="p-4 bg-gray-100 border flex justify-between font-black">
+    <div className="flex justify-between font-black">
       <p>Total: </p>
       <span>{convertToCurrency(orderTotal)}</span>
     </div>
