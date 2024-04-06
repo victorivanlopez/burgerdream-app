@@ -17,8 +17,8 @@ export default function FormDetails() {
         name="name"
         id='name'
         required
-        className='border border-gray-100 p-2 rounded-md w-full'
-        placeholder='Nombre completo'
+        className='w-full border border-gray-100 p-2 rounded-md shadow-sm text-sm focus:outline-none focus:border-orange-100'
+        placeholder='Escribe tu nombre'
       />
       <input
         type="submit"
