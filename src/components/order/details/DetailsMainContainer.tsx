@@ -1,5 +1,5 @@
 import { useOrderStore } from '@/stores';
-import { DetailsOrderTotal, DetailsProductList } from '.';
+import { DetailsOrderTotal, DetailsProductList, FormDetails } from '.';
 
 export default function DetailsMainContainer() {
 
@@ -11,6 +11,8 @@ export default function DetailsMainContainer() {
       <DetailsProductList order={order} />
 
       <DetailsOrderTotal orderTotal={orderTotal} />
+
+      <FormDetails />
     </>
   )
 }
