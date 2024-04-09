@@ -1,17 +1,17 @@
 import { useOrderStore } from '@/stores';
-import { DetailsOrderTotal, DetailsProductList, FormDetails } from '.';
+import { OrderTotalDetails, ProductListDetails, FormDetails } from '.';
 
-export default function DetailsMainContainer() {
+export default function MainContainerDetails() {
 
   const order = useOrderStore((state) => state.order);
   const orderTotal = useOrderStore((state) => state.orderTotal());
 
   return (
     <>
-      <DetailsProductList order={order} />
+      <ProductListDetails order={order} />
 
       <div className='p-4 bg-gray-50 border '>
-        <DetailsOrderTotal orderTotal={orderTotal} />
+        <OrderTotalDetails orderTotal={orderTotal} />
 
         <FormDetails />
       </div>
