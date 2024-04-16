@@ -11,6 +11,7 @@ interface OrderStore {
   increaseQty: (idProduct: Product['id']) => void;
   decreaseQty: (idProduct: Product['id']) => void;
   deleteProductOrder: (idProduct: Product['id']) => void;
+  clearOrder: () => void;
 }
 
 const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, get) => ({
@@ -57,6 +58,7 @@ const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, 
     const order = get().order.filter(item => item.id !== idProduct);
     set({ order }, false, 'deleteProductOrder');
   },
+  clearOrder: () => set({ order: [] }),
 })
 
 export const useOrderStore = create<OrderStore>()(
