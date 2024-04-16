@@ -1,10 +1,36 @@
 import { createOrder } from '@/actions';
+import { OrderSchema } from '@/schemas';
+import { useOrderStore } from '@/stores';
+import { toast } from 'react-toastify';
 
 export default function FormDetails() {
 
-  const onSubmitForm = (formdata: FormData) => {
-    console.log('On Submitting....', formdata.get('name'));
-    createOrder();
+  const order = useOrderStore(state => state.order);
+  const total = useOrderStore(state => state.orderTotal());
+  const clearOrder = useOrderStore(state => state.clearOrder);
+
+  const onSubmitForm = async (formdata: FormData) => {
+    const data = {
+      name: formdata.get('name'),
+      total,
+      order
+    }
+    const result = OrderSchema.safeParse(data);
+    if (!result.success) {
+      result.error.issues.forEach(issue => {
+        toast.error(issue.message);
+      })
+    } else {
+      const response = await createOrder(data);
+      if (response?.errors) {
+        response.errors.forEach(error => {
+          toast.error(error.message);
+        })
+      } else {
+        toast.success('Pedido realizado correctamente');
+        clearOrder();
+      }
+    }
   }
 
   return (
