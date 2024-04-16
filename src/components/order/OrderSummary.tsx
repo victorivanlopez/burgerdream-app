@@ -12,7 +12,7 @@ export default function OrderSummary() {
 
       {
         order.length === 0
-          ? <p className='py-5 text-center'>No hay productos aún.</p>
+          ? <p className='py-5 text-center'>No hay productos. Agrega productos a tu orden.</p>
           : <MainContainerDetails />
       }
     </aside>
