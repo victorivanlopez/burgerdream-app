@@ -1,0 +1,13 @@
+import { z } from 'zod';
+
+export const OrderSchema = z.object({
+  name: z.string().min(1, 'El nombre es obligatorio'),
+  total: z.number().min(1, 'Error en el total de la orden'),
+  order: z.array(z.object({
+    id: z.number(),
+    name: z.string(),
+    price: z.number(),
+    qty: z.number(),
+    subtotal: z.number(),
+  })),
+});
