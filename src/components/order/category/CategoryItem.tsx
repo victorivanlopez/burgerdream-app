@@ -13,7 +13,7 @@ export default function CategoryItem({ category, currentCategory }: CategoryIcon
       className={`${category.slug === currentCategory ? 'bg-orangeburger-400' : ''} flex items-center justify-center xl:justify-start gap-4 xl:border-t border-gray-200 py-6 px-8 xl:p-4 xl:last-of-type:border-b xl:hover:bg-orangeburger-400 transition-colors rounded-md`}
     >
       <img
-        src={`/assets/icon-${category.slug}.png`}
+        src={`/assets/icons/icon-${category.slug}.png`}
         alt={`Icono ${category.name}`}
         className='w-10 xl:w-auto'
         width={64}
