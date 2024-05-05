@@ -1,4 +1,6 @@
-import { prisma } from "@/libs"
+
+import { OrderListAdmin } from '@/components/admin/order';
+import { prisma } from '@/libs';
 
 async function getPendingOrders() {
   return await prisma.order.findMany({
@@ -18,6 +20,12 @@ async function getPendingOrders() {
 export default async function OrdersPage() {
   const orders = await getPendingOrders();
   return (
-    <div>OrdersPage</div>
+    <>
+      {
+        orders.length === 0
+          ? <p>No hay ordenes pendientes.</p>
+          : <OrderListAdmin orders={orders} />
+      }
+    </>
   )
 }
