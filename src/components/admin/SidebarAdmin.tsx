@@ -3,7 +3,7 @@ import { LinkList } from './navegation';
 
 export const SidebarAdmin = () => {
   return (
-    <aside className='xl:w-64 xl:h-screen bg-white shadow'>
+    <aside className='md:w-64 md:h-screen bg-white shadow'>
       <Logo />
       <nav className="mt-10">
         <LinkList />

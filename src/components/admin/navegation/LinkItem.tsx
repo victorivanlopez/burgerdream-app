@@ -14,9 +14,9 @@ export default function LinkItem({ link, currentLink }: LinkItemProps) {
   return (
     <Link
       href={`${link.url}`}
-      className={`${currentLink === link.url ? 'bg-orangeburger-400' : ''} flex items-center justify-center xl:justify-start gap-4 xl:border-t border-gray-200 py-6 px-8 xl:p-4 xl:last-of-type:border-b xl:hover:bg-orangeburger-400 transition-colors rounded-md`}
+      className={`${currentLink === link.url ? 'bg-orangeburger-400' : ''} flex items-center justify-center md:justify-start gap-4 xl:border-t border-gray-200 py-2 px-4 md:py-4 md:px-8 xl:last-of-type:border-b xl:hover:bg-orangeburger-400 transition-colors rounded-md`}
     >
-      <span className='xl:text-xl font-bold'>{link.text}</span>
+      <span className='text-xl font-bold'>{link.text}</span>
     </Link>
   )
 }
