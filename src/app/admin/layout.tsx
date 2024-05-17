@@ -7,7 +7,7 @@ export default async function AdminLayout({ children }: Readonly<{ children: Rea
       <div className="md:flex">
         <SidebarAdmin />
 
-        <main className="h-screen flex-1 overflow-y-auto p-2 md:p-4 lg:p-6">
+        <main className="h-screen flex-1 md:overflow-y-auto p-2 md:p-4 lg:p-6 mt-5 md:mt-0">
           {children}
         </main>
       </div>
