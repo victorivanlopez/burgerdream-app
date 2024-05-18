@@ -10,8 +10,8 @@ export default function OrderItemAdmin({ order }: OrderItemAdminProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow p-8 flex flex-col">
       <h3 className="text-2xl font-bold mb-4">{order.name}</h3>
-      <p className='font-bold'>Productos ordenados: </p>
-      <ul className='flex-1 py-4'>
+      <p className='font-bold text-lg'>Productos ordenados: </p>
+      <ul className='flex-1 pb-4'>
         {
           order.products.map(product => (
             <li
