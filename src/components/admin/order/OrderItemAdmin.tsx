@@ -1,3 +1,4 @@
+import { completeOrder } from '@/actions';
 import { convertToCurrency } from '@/helpers';
 import type { OrderWhitProducts } from '@/types';
 
@@ -29,7 +30,14 @@ export default function OrderItemAdmin({ order }: OrderItemAdminProps) {
         <span className='font-black'>{convertToCurrency(order.total)}</span>
       </div>
 
-      <form>
+      <form
+        action={completeOrder}
+      >
+        <input
+          type="hidden"
+          name="order-id"
+          value={order.id}
+        />
         <input
           type="submit"
           value="Completar orden"
