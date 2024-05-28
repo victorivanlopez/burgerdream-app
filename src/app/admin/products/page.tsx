@@ -1,6 +1,15 @@
+import { ProductsListAdmin } from "@/components/admin/products";
+import { prisma } from "@/libs"
 
-export default function ProductsPage() {
+async function getProducts() {
+  return await prisma.product.findMany();
+}
+
+export default async function ProductsPage() {
+  const products = await getProducts();
   return (
-    <div>ProductsPage</div>
+    <>
+      <ProductsListAdmin products={products} />
+    </>
   )
 }
