@@ -1,7 +1,26 @@
+'use client'
+
+import { SearchProductsSchema } from '@/schemas';
+import { useRouter } from 'next/navigation';
 
 export default function SearchFormProducts() {
+  const router = useRouter();
+
+  const handleSearchForm = (formData: FormData) => {
+    const data = {
+      search: formData.get('search'),
+    }
+    const result = SearchProductsSchema.safeParse(data);
+
+    if (result.success) {
+      router.push(`/admin/products/search?search=${result.data.search}`);
+    }
+  }
   return (
-    <form className="flex items-center">
+    <form
+      className="flex items-center"
+      action={handleSearchForm}
+    >
       <input
         type="text"
         placeholder="Buscar producto"
