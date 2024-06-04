@@ -10,13 +10,18 @@ async function getProductsCount() {
 async function getProducts(currentPage: number, pageSize: number) {
   const skip = (currentPage - 1) * pageSize;
 
-  return await prisma.product.findMany({
-    take: pageSize,
-    skip,
-    include: {
-      category: true
-    }
-  });
+  try {
+    return await prisma.product.findMany({
+      take: pageSize,
+      skip,
+      include: {
+        category: true
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error('Hubo un error en el servidor');
+  }
 }
 
 export default async function ProductsPage({ searchParams }: {
