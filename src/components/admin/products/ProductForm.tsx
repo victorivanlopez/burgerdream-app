@@ -43,7 +43,7 @@ export default async function ProductForm() {
           id="categoryId"
           name="categoryId"
         >
-          <option value="" disabled selected>-- Seleccione --</option>
+          <option value="">-- Seleccione --</option>
           {
             categories.map(category => (
               <option
