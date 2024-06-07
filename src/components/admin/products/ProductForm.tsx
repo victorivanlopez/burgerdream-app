@@ -28,6 +28,7 @@ export default async function ProductForm() {
         >Precio</label>
         <input
           id="price"
+          type='number'
           name="price"
           className="p-2.5 text-sm border border-gray-200 bg-[#FCFDFE] focus:outline-none focus:border-orangeburger-200 w-full rounded-l-md"
         />
