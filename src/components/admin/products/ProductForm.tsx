@@ -1,7 +1,13 @@
 import { prisma } from '@/libs';
+import ImageUpload from './ImageUpload';
 
 async function getCategories() {
-  return prisma.category.findMany();
+  try {
+    return prisma.category.findMany();
+  } catch (error) {
+    console.log(error);
+    throw new Error('Hubo un error en el servidor');
+  }
 }
 
 export default async function ProductForm() {
@@ -46,7 +52,7 @@ export default async function ProductForm() {
         >
           <option value="">-- Seleccione --</option>
           {
-            categories.map(category => (
+            categories?.map(category => (
               <option
                 key={category.id}
                 value={category.id}
@@ -57,6 +63,8 @@ export default async function ProductForm() {
           }
         </select>
       </div>
+
+      <ImageUpload />
     </>
   )
 }
