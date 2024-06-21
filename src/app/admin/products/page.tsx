@@ -4,7 +4,12 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 async function getProductsCount() {
-  return await prisma.product.count();
+  try {
+    return await prisma.product.count();
+  } catch (error) {
+    console.log(error);
+    throw new Error('Hubo un error en el servidor');
+  }
 }
 
 async function getProducts(currentPage: number, pageSize: number) {
