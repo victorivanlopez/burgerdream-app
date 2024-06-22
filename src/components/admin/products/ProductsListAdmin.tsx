@@ -1,6 +1,7 @@
 import { EditIcon } from '@/components/ui/icons';
 import { convertToCurrency } from '@/helpers';
 import { ProductWithCategories } from '@/types';
+import Link from 'next/link';
 
 interface ProductsListAdminProps {
   products: ProductWithCategories[];
@@ -40,13 +41,14 @@ export default function ProductsListAdmin({ products }: ProductsListAdminProps) 
                   {product.category.name}
                 </td>
                 <td className="relative whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-500">
-                  <button
+                  <Link
+                    href={`/admin/products/${product.id}/edit`}
                     type='button'
                     className='hover:text-orangeburger-600 transition-colors'
                   >
                     <EditIcon />
                     <span className="sr-only">Editar producto {product.name}</span>
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))
