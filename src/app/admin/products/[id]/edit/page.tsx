@@ -1,5 +1,6 @@
-import { prisma } from '@/libs';
 import { notFound } from 'next/navigation';
+import { EditProductForm, ProductForm } from '@/components/admin/products';
+import { prisma } from '@/libs';
 
 async function getProductById(id: number) {
   try {
@@ -30,6 +31,12 @@ export default async function EditProductPage({ params }: { params: { id: string
   }
 
   return (
-    <div>EditProductPage</div>
+    <>
+      <h1 className="text-xl font-bold">Editando producto: {product.name}</h1>
+
+      <EditProductForm>
+        <ProductForm product={product} />
+      </EditProductForm>
+    </>
   )
 }
