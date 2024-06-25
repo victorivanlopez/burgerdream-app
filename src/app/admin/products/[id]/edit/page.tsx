@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { EditProductForm, ProductForm } from '@/components/admin/products';
 import { prisma } from '@/libs';
+import GoBackButton from '@/components/ui/GoBackButton';
 
 async function getProductById(id: number) {
   try {
@@ -33,6 +34,8 @@ export default async function EditProductPage({ params }: { params: { id: string
   return (
     <>
       <h1 className="text-xl font-bold">Editando producto: {product.name}</h1>
+
+      <GoBackButton />
 
       <EditProductForm>
         <ProductForm product={product} />
