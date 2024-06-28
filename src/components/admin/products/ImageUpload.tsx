@@ -1,9 +1,17 @@
 'use client'
+import { getImagePath } from '@/helpers';
 import { CldUploadWidget } from 'next-cloudinary';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function ImageUpload() {
+export default function ImageUpload({ image }: { image: string | undefined }) {
   const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    if (image) {
+      setImageUrl(image);
+    }
+  }, [image]);
+
   return (
     <CldUploadWidget
       uploadPreset="burgerdream"
@@ -30,7 +38,7 @@ export default function ImageUpload() {
             >
               {
                 (imageUrl.length > 0)
-                  ? <img className="object-cover rounded-t-lg h-32 md:rounded-none md:rounded-s-lg cursor-pointer" src={imageUrl} alt='Imagen del producto' />
+                  ? <img className="object-cover rounded-t-lg h-32 md:rounded-none md:rounded-s-lg cursor-pointer" src={getImagePath(imageUrl)} alt='Imagen del producto' />
                   : (
                     <label className="flex flex-col items-center justify-center cursor-pointer">
                       <div className="flex flex-col items-center justify-center pt-5 pb-6 text-gray-500">
@@ -46,7 +54,7 @@ export default function ImageUpload() {
             <input
               type="hidden"
               name="image"
-              value={imageUrl}
+              defaultValue={imageUrl}
             />
           </div>
         );
