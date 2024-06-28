@@ -5,7 +5,7 @@ export type ProductWithCategories = Product & {
 }
 
 export type FormProductData = {
-  name: FormDataEntryValue | null;
+  name: string;
   price: number;
   categoryId: number;
   image: string;
