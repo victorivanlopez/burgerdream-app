@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { ArrowLeftIcon, ArrowRightIcon } from '@/components/ui/icons';
 
 interface PaginationProductsProps {
   currentPage: number;
@@ -17,9 +18,7 @@ export default function PaginationProducts({ currentPage, totalPages }: Paginati
             href={`/admin/products?page=${currentPage - 1}`}
             className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium bg-white border rounded-lg hover:bg-gray-100 text-gray-500 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
+            <ArrowLeftIcon />
             Anterior
           </Link>
         )
@@ -42,9 +41,7 @@ export default function PaginationProducts({ currentPage, totalPages }: Paginati
             className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium bg-white border rounded-lg hover:bg-gray-100 text-gray-500 transition-colors"
           >
             Siguiente
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
+            <ArrowRightIcon />
           </Link>
         )
       }
