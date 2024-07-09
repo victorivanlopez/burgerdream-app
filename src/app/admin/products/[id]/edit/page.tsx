@@ -33,9 +33,11 @@ export default async function EditProductPage({ params }: { params: { id: string
 
   return (
     <>
-      <h1 className="text-xl font-bold">Editando producto: {product.name}</h1>
+      <GoBackButton 
+        btnText='Volver a Productos' 
+      />
 
-      <GoBackButton />
+      <h1 className="text-xl font-bold">Editando producto: {product.name}</h1>
 
       <EditProductForm>
         <ProductForm product={product} />

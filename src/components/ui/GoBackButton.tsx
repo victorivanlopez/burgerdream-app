@@ -2,16 +2,20 @@
 import { useRouter } from 'next/navigation';
 import { ArrowLeftIcon } from './icons';
 
-export default function GoBackButton() {
+interface GoBackButtonProps {
+  btnText: string;
+}
+
+export default function GoBackButton({ btnText }: GoBackButtonProps) {
   const router = useRouter();
   return (
-    <div className='mt-5'>
+    <div className='my-5'>
       <button
         onClick={() => router.back()}
-        className='text-redburger-400 font-bold flex items-center gap-1'
+        className='text-redburger-400 font-bold flex items-center gap-1 text-sm'
       >
         <ArrowLeftIcon />
-        <span>Regresar</span>
+        <span>{btnText}</span>
       </button>
     </div>
   )
