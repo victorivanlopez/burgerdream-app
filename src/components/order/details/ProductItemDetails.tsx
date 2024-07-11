@@ -1,10 +1,6 @@
-import {
-  BtnDecreaseQty,
-  BtnDeleteProductOrder,
-  BtnIncreaseQty
-} from '.';
 import { convertToCurrency } from '@/helpers';
 import type { OrderItem } from '@/types';
+import { ProductQty } from '../product';
 
 interface OrderDetailsItemProps {
   product: OrderItem;
@@ -18,19 +14,7 @@ export default function DetailsProductItem({ product }: OrderDetailsItemProps) {
         <span className='text-redburger-500 font-black'>{convertToCurrency(product.price)}</span>
       </div>
 
-      <div className='w-24 p-2 border rounded-full my-4'>
-        <div className='flex justify-between items-center'>
-          {
-            product.qty === 1
-              ? <BtnDeleteProductOrder idProduct={product.id} />
-              : <BtnDecreaseQty idProduct={product.id} />
-          }
-
-          <p>{product.qty}</p>
-
-          <BtnIncreaseQty idProduct={product.id} />
-        </div>
-      </div>
+      <ProductQty product={product} />
 
       <div className='flex justify-between text-sm'>
         <p className='font-bold'>Subtotal:</p>
