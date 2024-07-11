@@ -5,6 +5,7 @@ import type { OrderItem } from '@/types';
 
 interface OrderStore {
   order: OrderItem[];
+  getProductInOrder: (idProduct: Product['id']) => OrderItem | undefined;
   isProductInOrder: (product: Product) => boolean;
   orderTotal: () => number;
   addProductToOrder: (product: Product) => void;
@@ -16,6 +17,8 @@ interface OrderStore {
 
 const storeAPI: StateCreator<OrderStore, [['zustand/devtools', never]]> = (set, get) => ({
   order: [],
+
+  getProductInOrder: (idProduct: Product['id']) => get().order.find(item => item.id === idProduct),
 
   isProductInOrder: (product: Product) => get().order.some(item => item.id === product.id),
 
