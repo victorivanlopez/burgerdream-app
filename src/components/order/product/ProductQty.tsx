@@ -11,7 +11,7 @@ interface ProductQtyProps {
 
 export default function ProductQty({ product }: ProductQtyProps) {
   return (
-    <div className='w-24 p-2 border rounded-full my-4'>
+    <div className='w-28 px-2 py-1 border rounded-full'>
       <div className='flex justify-between items-center'>
         {
           product.qty === 1
