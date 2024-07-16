@@ -1,20 +1,43 @@
-'use client'
-import useSWR from 'swr';
+import { revalidatePath } from 'next/cache';
 import { OrderListAdmin } from '@/components/admin/order';
-import { Spinner } from '@/components/ui';
-import type { OrderWhitProducts } from '@/types';
+import { prisma } from '@/libs';
 
-const url = '/admin/orders/api';
-const fetcher = () => fetch(url).then(res => res.json()).then(data => data);
+async function getPendingOrders() {
+  return await prisma.order.findMany({
+    where: {
+      status: false
+    },
+    include: {
+      products: {
+        include: {
+          product: true
+        }
+      }
+    }
+  })
+}
 
-export default function OrdersPage() {
-  const { data: orders, error, isLoading } = useSWR<OrderWhitProducts[]>(url, fetcher);
+const refreshOrders = async () => {
+  'use server'
+  revalidatePath('/admin/orders');
+}
 
-  if (isLoading) return <Spinner />
+export default async function OrdersPage() {
+  const orders = await getPendingOrders();
 
-  if (orders) return (
+  return (
     <>
       <h1 className="text-xl font-bold mb-5">Administrar ordenes</h1>
+
+      <form
+        action={refreshOrders}
+      >
+        <input
+          type="submit"
+          value="Actualizar ordenes"
+          className='py-2 px-8 cursor-pointer bg-orangeburger-400 text-black font-bold hover:bg-opacity-90 transition-colors rounded-md w-full lg:w-auto text-center'
+        />
+      </form>
 
       <div className='mt-5'>
         {
