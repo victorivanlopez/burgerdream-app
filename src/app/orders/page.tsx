@@ -1,14 +1,17 @@
 'use client'
 import useSWR from 'swr';
 import { Logo, Spinner } from '@/components/ui';
-import type { OrderWhitProducts } from '@/types';
 import { LatestOrdersList } from '@/components/orders';
+import type { OrderWhitProducts } from '@/types';
 
 const url = '/orders/api';
 const fetcher = () => fetch(url).then(res => res.json()).then(data => data);
 
 export default function OrdersPage() {
-  const { data: orders, isLoading } = useSWR<OrderWhitProducts[]>(url, fetcher);
+  const { data: orders, isLoading } = useSWR<OrderWhitProducts[]>(url, fetcher, {
+    refreshInterval: 300000,
+    revalidateOnFocus: false,
+  });
 
   if (isLoading) return <Spinner />
 
