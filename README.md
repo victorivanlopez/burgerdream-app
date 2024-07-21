@@ -14,10 +14,11 @@
 
 ## Built with 🛠️
 
-- [Next 14](https://nextjs.org/)
-- [Zustand V4](https://www.npmjs.com/package/zustand)
-- [Tailwind V3](https://tailwindcss.com/)
-- [Vite V4](https://vitejs.dev)
+- [Next v14](https://nextjs.org/)
+- [Zustand v4](https://www.npmjs.com/package/zustand)
+- [Prisma v5.11](https://www.prisma.io/)
+- [Tailwind v3](https://tailwindcss.com/)
+- [Vite v4](https://vitejs.dev)
 - [SWR v2.2](https://swr.vercel.app/)
 
 **[⬆ back to top](#table-of-contents-)**
