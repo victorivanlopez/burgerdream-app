@@ -12,6 +12,15 @@
 - PostgreSQL database with Prisma ORM.
 - Data Fetching with SWR.
 
+## Preview 💻
+| **Menu Page** |
+| :-------------: |
+| ![Menu Page](https://i.imgur.com/4cM8cO6.png) |
+
+| **Dashboard Page** |
+| :-------------: |
+| ![Dashboard Page](https://i.imgur.com/Pusl5Tw.png) |
+
 ## Built with 🛠️
 
 - [Next v14](https://nextjs.org/)
