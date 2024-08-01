@@ -3,6 +3,7 @@
 ## Table of Contents 📘
 
 1. [Description](#description-)
+2. [Preview](#preview-)
 3. [Built with](#built-with-%EF%B8%8F)
 
 ## Description 📝
